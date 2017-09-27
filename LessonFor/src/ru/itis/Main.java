@@ -11,7 +11,7 @@ public class Main {
         int b= scanner.nextInt();
         int i=a;
         while (i <= b) {
-            System.out.print(i + " "); // неверно
+            System.out.print(i + " ");
             i++;
         }
     }
