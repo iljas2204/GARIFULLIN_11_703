@@ -11,11 +11,11 @@ public class Ex1 {
         n=scanner.nextInt();
         x=scanner.nextInt();
         for (int k=0;k<=n;k++) {
-            z =z*k;
-            if (z==0) z=1;
+            z =z*k;             //быстро наступит переполнение
+            if (z==0) z=1;     //что бы это значило?
             if (k % 2 == 1) {
-                s = s - (Math.pow(x, 2 * k + 1) / ((2 * k + 1) * z));
-            } else s = s + (Math.pow(x, 2 * k + 1) / ((2 * k + 1) * z));
+                s = s - (Math.pow(x, 2 * k + 1) / ((2 * k + 1) * z));   //плохо считаем степень
+            } else s = s + (Math.pow(x, 2 * k + 1) / ((2 * k + 1) * z));//плохо считаем степень
         }
         System.out.println(s);
     }
