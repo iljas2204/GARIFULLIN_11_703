@@ -14,8 +14,8 @@ public class Ex1 {
         for (int k=1;k<=n;k++) {
             p=p*x*x*(2*k-1)/(k*(2*k+1));
             if (k % 2 == 1) {
-                s = s - p;   //плохо считаем степень
-            } else s = s + p;//плохо считаем степень
+                s = s - p;   
+            } else s = s + p;
         }
         System.out.println(s);
     }
