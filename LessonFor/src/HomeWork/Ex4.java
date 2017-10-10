@@ -12,7 +12,7 @@ public class Ex4 {
         s=x;
         for (int k=1;k<=n;k++) {
             p=p*x*x*x*x*(4*k-3)/((2*k-1)*2*k*(4*k+1));
-            if (k % 2 == 1) {
+            if (k % 2 == 1) { // Не нравятся мне здесь эти условия
                 s = s - p;
             } else s = s + p;
         }
