@@ -6,7 +6,7 @@ public class Ex3 {
         //задача 6 б стр21.
         int k=3;
         while (Math.abs(x)>eps) {
-            s=s+x;
+            s=s+x;    //здесь ведь логика правильная! Куда она потом делась?
             x=p/(k*k);
             k=k+2;
             p=-p;
