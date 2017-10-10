@@ -8,7 +8,7 @@ public class Ex9 {
         Scanner scanner=new Scanner(System.in);
         x=scanner.nextInt();
         while(p>eps){
-            p=p*x/k;
+            p=p*x/k;// Логика нарушена
             k++;
             s=s+p;
         }
