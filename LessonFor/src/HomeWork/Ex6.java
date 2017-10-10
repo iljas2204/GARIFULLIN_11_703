@@ -9,7 +9,7 @@ public class Ex6 {
         n=scanner.nextInt();
         x=scanner.nextInt();
         for(int k=1;k<=2*n;k++){
-            p=p*x/(k+k);
+            p=p*x/(k+k);// Здесь накапливаются 2 произведения - по четным числам и по нечетным
             s=s+p;
         }
         System.out.println(s);
