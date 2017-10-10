@@ -8,7 +8,7 @@ public class Ex12 {
         int x,n=1;
         x=scanner.nextInt();
         while(Math.abs(p)>eps){
-            p=-p*x*x/(n*(n+1));
+            p=-p*x*x/(n*(n+1));// Логика нарушена
             n+=2;
             s+=p;
         }
