@@ -10,7 +10,7 @@ public class Ex11 {
         p=x;
         s=x;
         while(Math.abs(p)>eps){
-            p=-p*x*(n-1)/n;
+            p=-p*x*(n-1)/n;  // Логика нарушена
             s=s+p;
             n++;
         }
