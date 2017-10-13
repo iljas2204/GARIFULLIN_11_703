@@ -9,7 +9,7 @@ public class Ex9 {
         x=scanner.nextInt();
         while(p>eps){
             s=s+p;
-            p=p*x/k; //исправить
+            p=p*x/k;
             k++;
         }
         System.out.println(s);
