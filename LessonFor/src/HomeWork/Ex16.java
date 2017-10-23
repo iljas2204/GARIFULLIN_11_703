@@ -1,4 +1,4 @@
-package HomeWork;
+package HomeWork;//+
 //29б стр 26
 public class Ex16 {
     public static void main(String[] args){
