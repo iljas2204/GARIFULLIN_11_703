@@ -1,4 +1,4 @@
-package HomeWork;
+package HomeWork;//-
 import java.util.Scanner;
 // номер 10г , стр 22
 public class Ex6 {
@@ -8,7 +8,7 @@ public class Ex6 {
         double p = 1, s = 0;
         n = scanner.nextInt();
         x = scanner.nextInt();
-        if (n % 2 == 0) {
+        if (n % 2 == 0) {   //а причем здесь n?
             for (int k = 1; k <= 2 * n; k++) {
                 p = p * x / (k + k);
                 s = s + p;
