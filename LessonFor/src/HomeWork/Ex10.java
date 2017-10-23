@@ -1,4 +1,4 @@
-package HomeWork;
+package HomeWork;//-
 import java.util.Scanner;
 // 12б, 23 стр
 public class Ex10 {
@@ -10,7 +10,7 @@ public class Ex10 {
         p=x;
         while(Math.abs(p)>eps){
             s=s+p;
-            p=-p*x*x/(n*(n+1));
+            p=-p*x*x/(n*(n+1));//неверная формула
             n=n+2;
         }
         System.out.println(s);
