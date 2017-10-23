@@ -1,4 +1,4 @@
-package HomeWork;
+package HomeWork;//+
 //Массивы 22ж
 import java.util.Random;
 import java.util.Scanner;
