@@ -1,4 +1,4 @@
-package HomeWork;
+package HomeWork;//+-
 import java.util.Scanner;
 //Номер 10, упражнение 1
 public class Ex1 {
@@ -13,7 +13,7 @@ public class Ex1 {
         s=x;
         for (int k=1;k<=n;k++) {
             p=p*x*x*(2*k-1)/(k*(2*k+1));
-            if (k % 2 == 1) {
+            if (k % 2 == 1) {  //это не очень хорошая идея
                 s = s - p;   
             } else s = s + p;
         }
