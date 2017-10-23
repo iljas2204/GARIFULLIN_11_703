@@ -1,4 +1,4 @@
-package HomeWork;
+package HomeWork;//+
 import java.util.Scanner;
 //задача 12в, стр 23
 public class Ex11 {
