@@ -1,4 +1,4 @@
-package HomeWork;
+package HomeWork;//-
 import java.util.Scanner;
 //задача 12г, стр 23
 public class Ex12 {
@@ -9,7 +9,7 @@ public class Ex12 {
         x=scanner.nextInt();
         while(Math.abs(p)>eps){
             s+=p;
-            p=-p*x*x/(n*(n+1));
+            p=-p*x*x/(n*(n+1));//неверная формула
             n+=2;
         }
         System.out.println(s);
