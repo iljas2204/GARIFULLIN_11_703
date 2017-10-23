@@ -2,7 +2,7 @@ package HomeWork;
 
 import java.util.Random;
 import java.util.Scanner;
-//не решил
+//11b массивы
 public class Ex23 {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
@@ -17,9 +17,11 @@ public class Ex23 {
         for(int i=0;i<n-1;i++){
             y[i]=x[i+1];
         }
+        y[n-1]=x[0];
         for(int i=0;i<n-1;i++){
             z[i+1]=x[i];
         }
+        z[0]=x[n-1];
         for(int i=0;i<n;i++){
             System.out.print(z[i]+" ");
         }
