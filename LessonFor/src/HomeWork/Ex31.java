@@ -1,4 +1,4 @@
-package HomeWork;
+package HomeWork;//+
 
 import java.util.Scanner;
 //Задачи.docx, 15 задача
