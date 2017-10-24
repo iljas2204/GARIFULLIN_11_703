@@ -1,7 +1,7 @@
 package Ne_sdannoe_ili_ne_proverennoe;//-
 import java.util.Scanner;
 //задача 12г, стр 23
-public class Ex12 {
+public class Ex12g {
     public static void main(String[] args){
         Scanner scanner=new Scanner(System.in);
         double p=1,s=0,eps=0.0001;

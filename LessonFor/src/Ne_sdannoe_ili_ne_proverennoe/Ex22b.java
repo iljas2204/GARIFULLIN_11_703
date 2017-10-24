@@ -2,7 +2,7 @@ package Ne_sdannoe_ili_ne_proverennoe;
 
 import java.util.Scanner;
 //22 б массивы
-public class Ex32 {
+public class Ex22b {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
         int n=scanner.nextInt(),k=0;

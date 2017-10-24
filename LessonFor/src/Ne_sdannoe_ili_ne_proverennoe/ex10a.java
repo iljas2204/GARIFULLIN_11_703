@@ -1,7 +1,7 @@
 package Ne_sdannoe_ili_ne_proverennoe;//+-
 import java.util.Scanner;
 //Номер 10а
-public class Ex1 {
+public class ex10a {
 
     public static void main(String[] args) {
         Scanner scanner= new Scanner(System.in);
