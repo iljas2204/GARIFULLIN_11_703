@@ -10,7 +10,7 @@ public class Ex10 {
         p=x;
         while(Math.abs(p)>eps){
             s=s+p;
-            p=-p*x*x/(n*(n+1));//неверная формула
+            p=-p*x*x/((2*n)*(2*n+1));//исправлено
             n=n+2;
         }
         System.out.println(s);

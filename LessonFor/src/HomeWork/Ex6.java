@@ -8,7 +8,8 @@ public class Ex6 {
         double p = 1, s = 0;
         n = scanner.nextInt();
         x = scanner.nextInt();
-        if (n % 2 == 0) {   //а причем здесь n?
+        if (n % 2 == 0) {   //а причем здесь n? если четное n, то он (n)!! для четных делает, а для нечет (n)!! для нечетных
+            //
             for (int k = 1; k <= 2 * n; k++) {
                 p = p * x / (k + k);
                 s = s + p;
