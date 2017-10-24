@@ -1,4 +1,4 @@
-package HomeWork;//-
+package Ne_sdannoe_ili_ne_proverennoe;//-
 import java.util.Scanner;
 // номер 10г , стр 22
 public class Ex6 {

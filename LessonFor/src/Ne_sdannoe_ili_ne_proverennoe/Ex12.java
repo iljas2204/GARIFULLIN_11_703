@@ -1,4 +1,4 @@
-package HomeWork;//-
+package Ne_sdannoe_ili_ne_proverennoe;//-
 import java.util.Scanner;
 //задача 12г, стр 23
 public class Ex12 {
