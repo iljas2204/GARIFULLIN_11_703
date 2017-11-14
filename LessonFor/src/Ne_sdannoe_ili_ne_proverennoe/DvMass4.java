@@ -14,7 +14,7 @@ public class DvMass4 {
                 }
             }
             for (int i = 0; i < m; i++) {
-                for (int j = 0; j < n; j++) {
+                for (int j = 0; j < n; j++) {  //какой смысл здесь гнать цикл до конца, если дальше идет выбраковка?
                     if (i <j) {
                         x = a[i][j];
                         a[i][j] = a[j][i];
