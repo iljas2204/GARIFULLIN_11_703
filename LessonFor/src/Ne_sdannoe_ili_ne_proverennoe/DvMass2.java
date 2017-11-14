@@ -9,7 +9,7 @@ public class DvMass2 {
         int [][] a=new int[n][n];
         for (int i = 0; i <n ; i++) {
             for (int j = 0; j <n ; j++) {
-                a[i][j]=scanner.nextInt();
+                a[i][j]=scanner.nextInt();//ну тогда уж и вводите только половину
                 if(i>j){
                     a[i][j]=0;
                 }
