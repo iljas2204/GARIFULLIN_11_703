@@ -1,4 +1,4 @@
-package Ne_sdannoe_ili_ne_proverennoe;
+package Ne_sdannoe_ili_ne_proverennoe;//-
 
 import java.util.Scanner;
 //Задача 3 двумерные массивы
@@ -10,7 +10,7 @@ public class DvMass3 {
         for (int i = 0; i <n ; i++) {
             for (int j = 0; j <n ; j++) {
                 a[i][j]=scanner.nextInt();
-                if(i<j){
+                if(i<j){    //речь шла о побочной дигонали
                     a[i][j]=1;
                 }
             }
