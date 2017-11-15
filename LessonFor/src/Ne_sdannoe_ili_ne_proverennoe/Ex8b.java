@@ -2,12 +2,9 @@ package Ne_sdannoe_ili_ne_proverennoe;//-
 
 public class Ex8b {
     public static void main(String[] args) {
-        int [] s={1,4,2,3,9};
-        int [] t1={1};
+        int [] t1={1,0,1,0,1};
         int z=0;
-        int [] t2={1,4,2};
-        int [] b1=new int[s.length];
-        int [] b2=new int[s.length];
+        int [] t2={1,1,1,0,0};
         l:
         for(int i=0;i<t2.length;i++){
             for (int x=0;x<t1.length;x++){
@@ -18,10 +15,10 @@ public class Ex8b {
             }
         }
         if(z==t1.length){
-            System.out.println(true);
+            System.out.println("Множество включается");
         }
         else{
-            System.out.println(false);
+            System.out.println("Множество не включается");
         }
     }
-}   //какое-то странное решение. А где характеристические векторы?
+}

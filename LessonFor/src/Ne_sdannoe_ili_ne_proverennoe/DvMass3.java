@@ -10,7 +10,7 @@ public class DvMass3 {
         for (int i = 0; i <n ; i++) {
             for (int j = 0; j <n ; j++) {
                 a[i][j]=scanner.nextInt();
-                if(i<j){    //речь шла о побочной дигонали
+                if(i<n-j-1){
                     a[i][j]=1;
                 }
             }
