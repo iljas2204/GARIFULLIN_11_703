@@ -1,4 +1,4 @@
-package Ne_sdannoe_ili_ne_proverennoe;//-
+package Ne_sdannoe_ili_ne_proverennoe;//- //+
 import java.util.Scanner;
 // 12б, 23 стр
 public class Ex12b {
