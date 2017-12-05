@@ -1,4 +1,4 @@
-package Ne_sdannoe_ili_ne_proverennoe;
+package HomeWork;
 
 import java.util.Scanner;
 //Задача 2 двумерные массивы

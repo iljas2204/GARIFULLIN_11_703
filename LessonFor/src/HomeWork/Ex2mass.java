@@ -1,4 +1,4 @@
-package Ne_sdannoe_ili_ne_proverennoe;
+package HomeWork;
 //2 классная задача по массивам
 import java.util.Random;
 import java.util.Scanner;

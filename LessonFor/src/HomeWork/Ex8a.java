@@ -1,6 +1,6 @@
-package Ne_sdannoe_ili_ne_proverennoe;//-
+package HomeWork;//-
 
-public class Ex8a {
+public class    Ex8a {
     public static void main(String[] args) {
         int [] s={1,4,2,3,9};
         int [] t1={1,9};

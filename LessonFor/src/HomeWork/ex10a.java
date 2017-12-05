@@ -1,4 +1,4 @@
-package Ne_sdannoe_ili_ne_proverennoe;//+- //+
+package HomeWork;//+- //+
 import java.util.Scanner;
 //Номер 10а
 public class ex10a {

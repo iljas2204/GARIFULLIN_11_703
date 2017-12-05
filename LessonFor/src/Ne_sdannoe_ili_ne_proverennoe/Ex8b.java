@@ -1,4 +1,4 @@
-package Ne_sdannoe_ili_ne_proverennoe;//-
+package Ne_sdannoe_ili_ne_proverennoe;
 
 public class Ex8b {
     public static void main(String[] args) {
