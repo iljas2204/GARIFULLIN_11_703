@@ -1,4 +1,4 @@
-package Ne_sdannoe_ili_ne_proverennoe;
+package HomeWork;
 // задание 22, 4
 public class Ex224 {
     public static void main(String[] args) {
