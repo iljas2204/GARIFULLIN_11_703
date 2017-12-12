@@ -5,7 +5,7 @@ public class Ex224 {
         int[]a={1,2,3,4,5,6,7};
         int i=0;
         boolean b=false;
-        while(i< a.length-1&b==false){
+        while(i< a.length-1&b==false){//(&!B)
             for(int z=i+1;z<a.length;z++){
                 if(a[i]==a[z]){
                     b=true;
