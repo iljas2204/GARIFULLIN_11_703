@@ -12,7 +12,7 @@ public class Ex223 {
                 }
                 i++;
             }
-            if(b==false){
+            if(b==false){// (!B)
                 System.out.println("Не упорядочен вообще");
             }
             else{
@@ -26,7 +26,7 @@ public class Ex223 {
                 }
                 i++;
             }
-            if(b==false){
+            if(b==false){// (!B)
                 System.out.println("Не упорядочен вообще");
             }
             else{
