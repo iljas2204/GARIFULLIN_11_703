@@ -1,11 +1,21 @@
-public class Piano extends MusicalInstrument {
+public class Piano extends MusicalInstrument implements MusicInterface {
     Piano() {
         super.price = 1000;
-        super.name = "Piano2.0";
-        super.music = "trun";
+    }
+
+    @Override
+    public void song() {
+        System.out.println("ТыньТынь");
+    }
+
+    @Override
+    public void appearance() {
+        System.out.println("Красивая скрипка");
     }
 
     public String toString() {
-        return this.music+" "+"Название="+name+" "+"Цена="+price;
+        this.song();
+        this.appearance();
+        return String.valueOf(price)+" - цена";
     }
 }

@@ -1,5 +1,3 @@
-public class MusicalInstrument {
+public abstract class MusicalInstrument {
     protected int price;
-    protected String music;
-    protected String name;
 }

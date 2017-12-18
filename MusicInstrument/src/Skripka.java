@@ -1,11 +1,21 @@
-public class Skripka extends MusicalInstrument {
+public class Skripka extends MusicalInstrument implements MusicInterface {
     Skripka() {
         super.price = 2000;
-        super.name = "Skripka";
-        super.music = "truntruntrun";
+    }
+
+    @Override
+    public void song() {
+        System.out.println("ТруньТрунь");
+    }
+
+    @Override
+    public void appearance() {
+        System.out.println("Красивая скрипка");
     }
 
     public String toString() {
-        return this.music+" "+"Название="+name+" "+"Цена="+price;
+        this.song();
+        this.appearance();
+        return String.valueOf(price)+" - цена";
     }
 }

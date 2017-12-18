@@ -1,11 +1,21 @@
-public class Guitar extends MusicalInstrument {
+public class Guitar extends MusicalInstrument implements MusicInterface {
     Guitar() {
         super.price = 2000;
-        super.name = "Guitar1.0";
-        super.music = "truntrun";
+    }
+
+    @Override
+    public void song() {
+        System.out.println("БрыньБрынь");
+    }
+
+    @Override
+    public void appearance() {
+        System.out.println("Красивая гитара");
     }
 
     public String toString() {
-        return this.music+" "+"Название="+name+" "+"Цена="+price;
+        this.song();
+        this.appearance();
+        return String.valueOf(price)+" - цена";
     }
 }
