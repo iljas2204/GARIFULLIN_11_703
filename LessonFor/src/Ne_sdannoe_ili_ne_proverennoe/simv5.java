@@ -1,4 +1,4 @@
-package Ne_sdannoe_ili_ne_proverennoe;//-
+package Ne_sdannoe_ili_ne_proverennoe;
 
 public class simv5 {
     public static void main(String[] args) {
