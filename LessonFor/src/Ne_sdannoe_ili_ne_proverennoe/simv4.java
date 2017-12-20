@@ -13,7 +13,7 @@ public class simv4 {
         }
         }
         else {
-            for (int i = 0; i < string1.length(); i++) {  
+            for (int i = 0; i < string1.length(); i++) {
                 if (string1.charAt(i) != string2.charAt(i)) {
                     f = false;
                 }
