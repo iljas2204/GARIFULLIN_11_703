@@ -6,56 +6,41 @@ public class HeapSortClass {
     HeapSort[] tree(int[] arrayInt) {
         count = arrayInt.length;
         HeapSort[] array = new HeapSort[count];
-        int k = 0;
-        for (int i = 0; i < count / 2; i++) {
-            array[i].point = i;
-            array[i].value = arrayInt[k];
-            k++;
+        int k = 1;
+        for (int i = 0; i < arrayInt.length; i++) {
+            array[i] = new HeapSort();
+            array[i].value = arrayInt[i];
+        }
+        for (int i = 0; i < array.length / 2; i++) {
             array[i].nextElement1 = array[k];
             k++;
             array[i].nextElement2 = array[k];
             k++;
         }
-        for (int j = count / 2; j < count  ; j++) {
-            array[j].point = j;
-            array[j].value = arrayInt[k];
-        }
         return array;
     }
 
     int[] sort(HeapSort[] array) {
-        count = arrayInt.length;
-        for (int i = count / 2 - 1; i >= 0 ; i--) {
-            do{
-                if(array[i].nextElement1.value > array[i].nextElement2.value){
-                    helper = array[i].value;
-                    array[i].value = array[i].nextElement1.value;
-                    array[i].nextElement1.value = helper;
+        int valueElement;
+        for (int i = array.length / 2; i >= 0; i--) {
+            HeapSort t = array[i];
+            while (t.nextElement1 != null) {
+                if (t.nextElement1.value > array[i].nextElement2.value) {
+                    valueElement = t.value;
+                    t.value = t.nextElement1.value;
+                    t.nextElement1.value = valueElement;
+                    t = t.nextElement1;
+                } else {
+                    valueElement = t.value;
+                    t.value = t.nextElement2.value;
+                    t.nextElement2.value = valueElement;
+                    t = t.nextElement2;
                 }
-                else {
-                    helper = array[i].value;
-                    array[i].value = array[i].nextElement2.value;
-                    array[i].nextElement2.value = helper;
-                }
-            } while (array[i].nextElement1 != null);
+            }
         }
-        for (int i = count - 1; i >= 0 ; i--) {
-            do {//
-                if(array[i].nextElement2.point <= i ){
-                    helper = array[i].value;
-                    array[i].value = array[i].nextElement2.value;
-                    array[i].nextElement2.value = helper;
-                }
-                else {
-                    helper = array[i].value;
-                    array[i].value = array[i].nextElement1.value;
-                    array[i].nextElement1.value = helper;
-                }
-            } while (array[i].nextElement1 != null);
-        }
-        for (int i = 0; i < count ; i++) {
-            arrayInt[i] = array[i].value;
-            System.out.print(arrayInt[i] + " ");
+        int[] arrayInt = new int[array.length];
+        for (int i = array.length - 1; i >= 0; i--) {
+
         }
         return arrayInt;
     }
