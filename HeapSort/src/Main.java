@@ -13,9 +13,8 @@ public class Main {
                 array[i] = scanner.nextInt();
             }
             HeapSortAlgorithm sortAlgorithm = new HeapSortAlgorithm();
-            long time = System.nanoTime();
             sortAlgorithm.sort(array);
-            System.out.println(1.0 * (System.nanoTime() - time) / 1000000000 + " sec");
+            System.out.println(array.length);
         }
     }
 }
