@@ -1,4 +1,5 @@
 <%@ page import="ru.itis.project.services.UsersService" %>
+<%@ page import="ru.itis.project.services.ProductsService" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,15 +14,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
-    <script>
-        $( '.button' ).click(function() {
-            $( "cardColumns" ).load( "jsp/main.jsp  #cardColumns >*" );
-        });
-    </script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
           integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 </head>
-<body style="background-color:#f8f9fa">
+<body style="background-color:#EEEFF0">
 <!--
 
 NAVBAR
@@ -39,6 +35,7 @@ NAVBAR
         Cookie[] cookies = request.getCookies();
         ServletContext context = config.getServletContext();
         UsersService usersService = (UsersService) context.getAttribute("usersService");
+        ProductsService productsService = (ProductsService) context.getAttribute("productsService");
         if (cookies != null) {
             for (int i = 0; i < cookies.length; i++) {
 
@@ -58,14 +55,18 @@ NAVBAR
         </div>
     </div>
     <% } else {%>
+    <div class="btn-toolbar" role="toolbar">
+        <div class="btn-group mr-2" role group><a href="/new" class="btn btn-outline-info">Create New Project</a>
+        </div>
+    </div>
     <div class="dropdown show">
         <a class="btn btn-outline-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%=usersService.Login(cookie).get().getEmail()%>
+            <%=usersService.Login(cookie).get().getLogin()%>
         </a>
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="/profile">Profile</a>
             <a class="dropdown-item" href="/exit">Log out</a>
         </div>
     </div>
@@ -76,15 +77,19 @@ NAVBAR
     <div class="row">
         <div class="card-columns" id="cardColumns">
             <%
-                for (int i = 0; i < usersService.forTable().size()  ; i++) {
+                for (int i = 0; i < productsService.forTable().size(); i++) {
             %>
-            <div class="card border-info mb-3" style="max-width: 21rem;">
-                <div class="card-header">Header</div>
+            <div class="card text-center border-info mb-3" style="max-width: 21rem; align-content: center">
+                <div class="card-header"><h4><a
+                        href="/project?productId=<%=productsService.forTable().get(i).getId()%>"><%=productsService.forTable().get(i).getName()%>
+                </a></h4></div>
                 <div class="card-body text-info">
-                    <h5 class="card-title"><%=usersService.forTable().get(i).getId()%>
-                        and <%=usersService.forTable().get(i).getUserId()%>
+                    <h5 class="card-title">Author: <a
+                            href="/profile?userId=<%=productsService.forTable().get(i).getUserId()%>"><%=usersService.find(productsService.forTable().get(i).getUserId()).get().getLogin()%>
+                    </a>
                     </h5>
-                    <p class="card-text">фимпфффффффффффффффффффффффффффффффффффффффффффффффффффффффф</p>
+                    <p class="card-text"><%=productsService.forTable().get(i).getSmallInfo()%>
+                    </p>
                 </div>
             </div>
             <%

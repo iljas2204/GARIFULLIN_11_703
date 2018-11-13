@@ -18,43 +18,40 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
           integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 </head>
-<body>
-<div class="container">
-    <!--
+<body style="background-color:#EEEFF0">
+<!--
 
 NAVBAR
 
 -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" style="color: white">Name</a>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="home" style="color: white">Home <span
-                        class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link active" href="#" style="color: white">Look Projects</a>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/home">Home <span
+                    class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="/main">Look Projects</a>
         </div>
-    </nav>
-    <br>
-    <div class="container" align="center">
-        <form method="post">
-            <form-row>
-                <div class="form-group col-md-6">
-                    <label for="exampleInputEmail1" style="color: white;">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                           placeholder="Enter email" style="border:1px solid #17a2b8">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="exampleInputPassword1" style="color: white;">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
-                           style="border:1px solid #17a2b8">
-                    <br>
-                    <a href="home" class="btn btn-outline-info">Back to home</a>
-                    <button type="submit" class="btn btn-outline-info">Sign Up</button>
-                </div>
-            </form-row>
-        </form>
     </div>
+</nav>
+<br>
+<div class="container" align="center">
+    <form method="post">
+        <form-row>
+            <div class="form-group col-md-6">
+                <label for="login">Login</label>
+                <input name="login" type="text" class="form-control" id="login" aria-describedby="emailHelp"
+                       placeholder="Enter login" style="border:1px solid #17a2b8">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="password">Password</label>
+                <input name="password" type="password" class="form-control" id="password" placeholder="Password"
+                       style="border:1px solid #17a2b8">
+                <br>
+                <a href="home" class="btn btn-outline-info">Back to home</a>
+                <button type="submit" class="btn btn-outline-info">Sign Up</button>
+            </div>
+        </form-row>
+    </form>
 </div>
 </body>
 </html>

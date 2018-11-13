@@ -7,6 +7,7 @@ public interface CrudRepository<T> {
     Optional<T> findOne(Long id);
     void save(T model);
     void delete(Long id);
+    void update(T model, Long id);
 
     List<T> findAll();
 }

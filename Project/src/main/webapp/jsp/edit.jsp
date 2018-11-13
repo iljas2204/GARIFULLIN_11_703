@@ -1,7 +1,13 @@
 <%@ page import="ru.itis.project.services.UsersService" %>
-<%@ page import="ru.itis.project.models.User" %>
-<%@ page import="java.util.Optional" %>
 <%@ page import="ru.itis.project.services.ProductsService" %>
+<%@ page import="ru.itis.project.models.User" %>
+<%@ page import="java.util.Optional" %><%--
+  Created by IntelliJ IDEA.
+  User: Iljas
+  Date: 12.11.2018
+  Time: 4:24
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -31,12 +37,6 @@ NAVBAR
             <a class="nav-item nav-link active" href="/main">Look Projects</a>
         </div>
     </div>
-    <%if(request.getParameter("userId") == null) {%>
-    <div class="btn-toolbar" role="toolbar">
-        <div class="btn-group mr-2" role group><a href="/edit" class="btn btn-outline-info">Edit profile</a>
-        </div>
-    </div>
-    <%}%>
 </nav>
 <%
     String cookie = "";
@@ -58,55 +58,49 @@ NAVBAR
         } else {
             user = usersService.find(Long.valueOf(request.getParameter("userId")));
         }
+
 %>
-<div class="card text-center">
-    <div class="card-header">
-        Profile
-    </div>
-    <div class="card-body">
-        <%if (user.get().getLogin() != null) {%>
-        <h5 class="card-title">Login: <%=user.get().getLogin()%>
-            <%}%>
-        </h5>
-        <%if (user.get().getEmail() != null) {%>
-        <h5 class="card-title">Email: <%=user.get().getEmail()%>
-        </h5><%}%>
-        <%if (user.get().getFirstName() != null) {%>
-        <h5 class="card-title">First Name: <%=user.get().getFirstName()%>
-        </h5><%}%>
-        <%if (user.get().getLastName() != null) {%>
-        <h5 class="card-title">Last Name: <%=user.get().getLastName()%>
-        </h5><%}%>
-        <%if (user.get().getGit() != null) {%>
-        <h5 class="card-title">GitHub: <%=user.get().getGit()%>
-        </h5><%}%>
-    </div>
-</div>
 <br>
-<div class="container">
-    <div class="row">
-        <div class="card-columns" id="cardColumns">
-            <%
-                for (int i = 0; i < productsService.forProfile(user.get().getId()).size(); i++) {
-            %>
-            <div class="card text-center border-info mb-3" style="max-width: 21rem; min-width: 21rem">
-                <div class="card-header" style="align-content: center"><h4><a
-                        href="/project?productId=<%=productsService.forProfile(user.get().getId()).get(i).getId()%>"><%=productsService.forProfile(user.get().getId()).get(i).getName()%>
-                </a></h4></div>
-                <div class="card-body text-info">
-                    <h5 class="card-title">Author: <a
-                            href="/profile?userId=<%=productsService.forProfile(user.get().getId())%>"><%=user.get().getLogin()%>
-                    </a></h5>
-                    <p class="card-text"><%=productsService.forProfile(user.get().getId()).get(i).getSmallInfo()%>
-                    </p>
-                </div>
+<div class="container" align="center">
+    <form method="post">
+        <form-row>
+            <div class="form-group col-md-6">
+                <label for="login">Login</label>
+                <input name="login" value="<%=user.get().getLogin()%>" class="form-control" id="login"
+                       aria-describedby="emailHelp"
+                       placeholder="Enter login" style="border:1px solid #17a2b8">
             </div>
-            <%
-                }
-            %>
-        </div>
-    </div>
+            <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input name="email" value="<%=user.get().getEmail()%>" class="form-control" id="email"
+                       placeholder="Email"
+                       style="border:1px solid #17a2b8">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="firstName">First Name</label>
+                <input name="firstName" value="<%=user.get().getFirstName()%>" class="form-control" id="firstName"
+                       placeholder="First Name"
+                       style="border:1px solid #17a2b8">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="lastName">Last Name</label>
+                <input name="lastName" value="<%=user.get().getLastName()%>" class="form-control" id="lastName"
+                       placeholder="Last Name"
+                       style="border:1px solid #17a2b8">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="git">GitHub</label>
+                <input name="git" value="<%=user.get().getGit()%>" class="form-control" id="git"
+                       placeholder="Git"
+                       style="border:1px solid #17a2b8">
+            </div>
+            <br>
+            <a href="home" class="btn btn-outline-info">Back to home</a>
+            <button type="submit" class="btn btn-outline-info">Edit</button>
+        </form-row>
+    </form>
 </div>
-<%} %>
+
 </body>
 </html>
+<%}%>

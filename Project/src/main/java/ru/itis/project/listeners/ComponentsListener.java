@@ -1,10 +1,9 @@
 package ru.itis.project.listeners;
 
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import ru.itis.project.repositories.AuthRepository;
-import ru.itis.project.repositories.AuthRepositoryImpl;
-import ru.itis.project.repositories.UsersRepository;
-import ru.itis.project.repositories.UsersRepositoryJdbcTemplateImpl;
+import ru.itis.project.repositories.*;
+import ru.itis.project.services.ProductsService;
+import ru.itis.project.services.ProductsServiceImpl;
 import ru.itis.project.services.UsersService;
 import ru.itis.project.services.UsersServiceImpl;
 
@@ -22,7 +21,10 @@ public class ComponentsListener implements ServletContextListener {
         UsersRepository usersRepository = new UsersRepositoryJdbcTemplateImpl(dataSource);
         AuthRepository authRepository = new AuthRepositoryImpl(dataSource);
         UsersService usersService = new UsersServiceImpl(usersRepository, authRepository);
+        ProductsRepository productsRepository = new ProductsRepositoryImpl(dataSource);
+        ProductsServiceImpl productsService = new ProductsServiceImpl(productsRepository);
         sce.getServletContext().setAttribute("usersService", usersService);
+        sce.getServletContext().setAttribute("productsService", productsService);
     }
 
     @Override

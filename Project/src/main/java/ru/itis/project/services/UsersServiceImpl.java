@@ -2,15 +2,14 @@ package ru.itis.project.services;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import ru.itis.project.forms.SettingsUserForm;
 import ru.itis.project.forms.SignInForm;
 import ru.itis.project.forms.SignUpForm;
 import ru.itis.project.models.Auth;
-import ru.itis.project.models.Product;
 import ru.itis.project.models.User;
 import ru.itis.project.repositories.AuthRepository;
 import ru.itis.project.repositories.UsersRepository;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -30,7 +29,7 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public void signUp(SignUpForm form) {
         User user = User.builder()
-                .email(form.getEmail())
+                .login(form.getLogin())
                 .hashPassword(encoder.encode(form.getPassword()))
                 .build();
 
@@ -38,9 +37,23 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
+    public void edit(SettingsUserForm form) {
+        User user = User.builder()
+                .id(form.getId())
+                .login(form.getLogin())
+                .email(form.getEmail())
+                .firstName(form.getFirstName())
+                .lastName(form.getLastName())
+                .git(form.getGit())
+                .build();
+
+        usersRepository.update(user, form.getId());
+    }
+
+    @Override
     public String signIn(SignInForm form) {
 
-        Optional<User> userOptional = usersRepository.findOneByEmail(form.getEmail());
+        Optional<User> userOptional = usersRepository.findOneByLogin(form.getLogin());
         User user;
         if (userOptional.isPresent()) {
             user = userOptional.get();
@@ -81,7 +94,9 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public List<Product> forTable() {
-        return usersRepository.findAllProducts();
+    public Optional<User> find(Long id) {
+        return usersRepository.findOne(id);
     }
+
+
 }

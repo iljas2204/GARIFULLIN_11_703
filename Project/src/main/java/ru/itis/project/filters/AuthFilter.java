@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter("/personal/*")
+@WebFilter("/personal/new")
 public class AuthFilter implements Filter {
 
     private UsersService usersService;

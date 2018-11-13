@@ -32,7 +32,7 @@ public class SignInServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         SignInForm form = SignInForm.builder()
-                .email(req.getParameter("email"))
+                .login(req.getParameter("login"))
                 .password(req.getParameter("password"))
                 .build();
 

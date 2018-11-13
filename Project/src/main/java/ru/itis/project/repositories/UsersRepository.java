@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UsersRepository extends CrudRepository<User> {
-    Optional<User> findOneByEmail(String email);
+    Optional<User> findOneByLogin(String login);
     Optional<User> findOneByCookie(String cookieValue);
-    List<Product> findAllProducts();
+
 }

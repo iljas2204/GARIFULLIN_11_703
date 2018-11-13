@@ -17,15 +17,14 @@ public class UsersRepositoryJdbcTemplateImpl implements UsersRepository {
 
     //language=SQL
     private static final String SQL_INSERT =
-            "insert into product_user(email, hash_password) values (?, ?);";
+            "insert into product_user(login, hash_password) values (?, ?);";
 
+    //language=SQL
+    private static final String SQL_UPDATE_USER =
+            "update product_user set (email, login, git, first_name, last_name) = (?,?,?,?,?) where id=?";
     //language=SQL
     private static final String SQL_SELECT_ALL =
             "select * from pizza_user";
-
-    //language=SQL
-    private static final String SQL_SELECT_ALL_PRODUCTS =
-            "select * from products";
 
     //language=SQL
     private static final String SQL_SELECT_BY_ID =
@@ -33,7 +32,7 @@ public class UsersRepositoryJdbcTemplateImpl implements UsersRepository {
 
     //language=SQL
     private static final String SQL_SELECT_BY_EMAIL =
-            "select * from product_user where email = ?;";
+            "select * from product_user where login = ?;";
 
     //language=SQL
     private static final String SQL_SELECT_BY_COOKIE =
@@ -47,25 +46,27 @@ public class UsersRepositoryJdbcTemplateImpl implements UsersRepository {
 
     private RowMapper<User> userRowMapper = (resultSet, i) -> User.builder()
             .id(resultSet.getLong("id"))
+            .login(resultSet.getString("login"))
+            .git(resultSet.getString("git"))
+            .lastName(resultSet.getString("last_name"))
+            .firstName(resultSet.getString("first_name"))
             .email(resultSet.getString("email"))
             .hashPassword(resultSet.getString("hash_password"))
             .build();
-    private RowMapper<Product> productRowMapper = (resultSet, i) -> Product.builder()
-            .id(resultSet.getLong("product_id"))
-            .userId(resultSet.getLong("id"))
-            .info(resultSet.getString("info"))
-            .build();
+
 
     @Override
     public Optional<User> findOne(Long id) {
         return Optional.of(jdbcTemplate.queryForObject(SQL_SELECT_BY_ID, userRowMapper, id));
     }
-    public Optional<User> findOneByEmail(String email) {
-        return Optional.of(jdbcTemplate.queryForObject(SQL_SELECT_BY_EMAIL, userRowMapper, email));
+    @Override
+    public Optional<User> findOneByLogin(String login) {
+        return Optional.of(jdbcTemplate.queryForObject(SQL_SELECT_BY_EMAIL, userRowMapper, login));
     }
     public Optional<User> findOneByCookie(String cookie) {
         return Optional.of(jdbcTemplate.queryForObject(SQL_SELECT_BY_COOKIE, userRowMapper, cookie));
     }
+
     @Override
     public void save(User model) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -73,7 +74,7 @@ public class UsersRepositoryJdbcTemplateImpl implements UsersRepository {
                 connection -> {
                     PreparedStatement ps =
                             connection.prepareStatement(SQL_INSERT, new String[] {"id"});
-                    ps.setString(1, model.getEmail());
+                    ps.setString(1, model.getLogin());
                     ps.setString(2, model.getHashPassword());
                     return ps;
                 }, keyHolder);
@@ -86,11 +87,26 @@ public class UsersRepositoryJdbcTemplateImpl implements UsersRepository {
     }
 
     @Override
+    public void update(User model, Long id) {
+        jdbcTemplate.update(
+                connection -> {
+                    PreparedStatement ps =
+                            connection.prepareStatement(SQL_UPDATE_USER);
+                    ps.setInt(6, Math.toIntExact(model.getId()));
+                    ps.setString(1, model.getEmail());
+                    ps.setString(2, model.getLogin());
+                    ps.setString(3, model.getGit());
+                    ps.setString(4, model.getFirstName());
+                    ps.setString(5, model.getLastName());
+
+                    return ps;
+                });
+    }
+
+    @Override
     public List<User> findAll() {
         return jdbcTemplate.query(SQL_SELECT_ALL, userRowMapper);
     }
 
-    public List<Product> findAllProducts() {
-        return jdbcTemplate.query(SQL_SELECT_ALL_PRODUCTS, productRowMapper);
-    }
+
 }

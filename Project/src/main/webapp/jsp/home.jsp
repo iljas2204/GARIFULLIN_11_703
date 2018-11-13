@@ -18,7 +18,7 @@
           integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 </head>
 
-<body style="background-color:#f8f9fa">
+<body style="background-color:#EEEFF0">
 <!--
 
 NAVBAR
@@ -27,8 +27,8 @@ NAVBAR
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link" href="home">Home</a>
-            <a class="nav-item nav-link" href="main">Look Projects</a>
+            <a class="nav-item nav-link" href="/home">Home</a>
+            <a class="nav-item nav-link" href="/main">Look Projects</a>
         </div>
     </div>
     <%
@@ -58,11 +58,11 @@ NAVBAR
     <div class="dropdown show">
         <a class="btn btn-outline-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%=usersService.Login(cookie).get().getEmail()%>
+            <%=usersService.Login(cookie).get().getLogin()%>
         </a>
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="/profile">Profile</a>
             <a class="dropdown-item" href="/exit">Log out</a>
         </div>
     </div>
@@ -124,7 +124,8 @@ JUMBOTRON
     <p class="lead" style="text-align: center">На данном ресурсе вы можете разместить идею своего проекта</p>
     <hr class="my-4">
     <p class="lead" style="text-align: center">
-        <a style="text-align: center" class="btn btn-info btn-lg" href="/main" role="button">Просмотреть размещенные проекты</a>
+        <a style="text-align: center" class="btn btn-info btn-lg" href="/main" role="button">Просмотреть размещенные
+            проекты</a>
     </p>
 </div>
 </body>

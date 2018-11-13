@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
           integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 </head>
-<body>
+<body style="background-color:#EEEFF0">
 <div class="container">
     <!--
 
@@ -26,12 +26,11 @@ NAVBAR
 
 -->
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" style="color: white">Name</a>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="home" style="color: white">Home <span
+                <a class="nav-item nav-link active" href="/home">Home <span
                         class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link active" href="#" style="color: white">Look Projects</a>
+                <a class="nav-item nav-link active" href="/main">Look Projects</a>
             </div>
         </div>
     </nav>
@@ -40,16 +39,16 @@ NAVBAR
         <form method="post">
             <form-row>
                 <div class="form-group col-md-6">
-                    <label for="email" style="color: white;">Email address</label>
-                    <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                           placeholder="Enter email" style="border:1px solid #17a2b8">
+                    <label for="login">Login</label>
+                    <input name="login" type="login" class="form-control" id="login" aria-describedby="emailHelp"
+                           placeholder="Enter login" style="border:1px solid #17a2b8">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="password" style="color: white;">Password</label>
+                    <label for="password">Password</label>
                     <input name="password" type="password" class="form-control" id="password" placeholder="Password"
                            style="border:1px solid #17a2b8">
                     <br>
-                    <a href="home" class="btn btn-outline-info">Back to home</a>
+                    <a href="/home" class="btn btn-outline-info">Back to home</a>
                     <button type="submit" class="btn btn-outline-info">Sign In</button>
                 </div>
             </form-row>

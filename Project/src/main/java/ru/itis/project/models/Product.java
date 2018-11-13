@@ -10,5 +10,7 @@ import lombok.*;
 public class Product {
     private Long id;
     private Long userId;
-    private String info;
+    private String smallInfo;
+    private String fullInfo;
+    private String name;
 }

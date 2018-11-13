@@ -62,6 +62,11 @@ public class AuthRepositoryImpl implements AuthRepository {
     }
 
     @Override
+    public void update(Auth model, Long id) {
+
+    }
+
+    @Override
     public void update(Auth model) {
 
     }
