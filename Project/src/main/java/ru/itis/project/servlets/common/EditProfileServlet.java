@@ -49,7 +49,7 @@ public class EditProfileServlet extends HttpServlet {
                 .email(request.getParameter("email"))
                 .firstName(request.getParameter("firstName"))
                 .lastName(request.getParameter("lastName"))
-                .git("git")
+                .git(request.getParameter("git"))
                 .build();
 
         usersService.edit(form);

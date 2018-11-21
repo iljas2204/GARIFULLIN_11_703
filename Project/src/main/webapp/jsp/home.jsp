@@ -101,7 +101,7 @@ CAROUSEL
                  src="https://4.bp.blogspot.com/-E5UdL9Atlq8/WdNVSfgjGTI/AAAAAAAABgo/8VBHbQ0fzT8359LGvW26KGUgg0bLgrcOgCLcBGAs/s1600/Easus-Free-Data-Recovery-Software-Review-1.jpg"
                  alt="Third slide">
             <div class="carousel-caption d-none d-md-block">
-                <h1>Не дайте своему проекту пропать</h1>
+                <h1>Не дайте своему проекту пропасть</h1>
             </div>
         </div>
     </div>

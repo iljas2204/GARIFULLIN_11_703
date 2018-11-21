@@ -27,20 +27,11 @@
 </head>
 <body style="background-color:#EEEFF0">
 <%
-    String cookie = "";
-    Cookie[] cookies = request.getCookies();
     ServletContext context = config.getServletContext();
     UsersService usersService = (UsersService) context.getAttribute("usersService");
-    if (cookies != null) {
-        for (int i = 0; i < cookies.length; i++) {
-
-            if (cookies[i].getName().equals("auth")) {
-                cookie = cookies[i].getValue();
-            }
-        }
-        ProductsService productsService = (ProductsService) context.getAttribute("productsService");
-        Optional<Product> product = productsService.findOneById(Long.valueOf(request.getParameter("productId")));
-        Optional<User> user = usersService.find(product.get().getUserId());
+    ProductsService productsService = (ProductsService) context.getAttribute("productsService");
+    Optional<Product> product = productsService.findOneById(Long.valueOf(request.getParameter("productId")));
+    Optional<User> user = usersService.find(product.get().getUserId());
 %>
 <!--
 
@@ -69,6 +60,5 @@ NAVBAR
             role="button">See user's profile</a>
     </p>
 </div>
-<%} %>
 </body>
 </html>
