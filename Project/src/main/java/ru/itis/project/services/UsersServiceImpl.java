@@ -10,6 +10,7 @@ import ru.itis.project.models.User;
 import ru.itis.project.repositories.AuthRepository;
 import ru.itis.project.repositories.UsersRepository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -24,6 +25,12 @@ public class UsersServiceImpl implements UsersService {
         this.usersRepository = usersRepository;
         this.authRepository = authRepository;
         this.encoder = new BCryptPasswordEncoder();
+    }
+
+    public UsersServiceImpl(AuthRepository authRepository, UsersRepository usersRepository, BCryptPasswordEncoder passwordEncoder) {
+        this.usersRepository = usersRepository;
+        this.authRepository = authRepository;
+        this.encoder = passwordEncoder;
     }
 
     @Override
@@ -98,5 +105,8 @@ public class UsersServiceImpl implements UsersService {
         return usersRepository.findOne(id);
     }
 
-
+    @Override
+    public List<User> findAll() {
+        return usersRepository.findAll();
+    }
 }

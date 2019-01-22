@@ -12,4 +12,5 @@ public interface ProductsService {
     void newProject(NewProjectForm projectForm);
     Optional<Product> findOneById(Long id);
     List<Product> forProfile (Long id);
+    List<Product> findListBySearch(String search);
 }

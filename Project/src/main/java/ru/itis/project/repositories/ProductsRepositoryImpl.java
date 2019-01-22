@@ -27,6 +27,9 @@ public class ProductsRepositoryImpl implements ProductsRepository {
     //language=SQL
     private static final String SQL_SELECT_ONE =
             "select * from products where product_id = ?";
+    //language=SQL
+    private static final String SQL_SEARCH_PRODUCTS =
+            "select * from products where product_name ILIKE ?";
 
     private JdbcTemplate jdbcTemplate;
 
@@ -41,6 +44,11 @@ public class ProductsRepositoryImpl implements ProductsRepository {
             .smallInfo(resultSet.getString("small_info"))
             .fullInfo(resultSet.getString("full_info"))
             .build();
+
+    @Override
+    public List<Product> findBySearch(String search) {
+        return jdbcTemplate.query(SQL_SEARCH_PRODUCTS, productRowMapper, search);
+    }
 
     @Override
     public List<Product> findAllProducts() {

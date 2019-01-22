@@ -2,10 +2,8 @@ package ru.itis.project.repositories;
 
 import ru.itis.project.models.Auth;
 
+import java.util.Optional;
+
 public interface AuthRepository extends CrudRepository<Auth> {
-    Auth find(Long id);
-
-    void update(Auth model);
-
-    Auth findByCookieValue(String cookieValue);
+    Optional<Auth> findByCookieValue(String cookieValue);
 }

@@ -1,7 +1,5 @@
-<%@ page import="ru.itis.project.services.UsersService" %>
-<%@ page import="ru.itis.project.services.ProductsService" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Main</title>
@@ -29,23 +27,13 @@ NAVBAR
             <a class="nav-item nav-link" href="home">Home</a>
             <a class="nav-item nav-link" href="main">Look Projects</a>
         </div>
+        <form class="form-inline my-2 my-lg-0" method="get">
+            <input class="form-control mr-sm-2" id="search" name="search" type="search" placeholder="Search by project" aria-label="Search">
+            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
-    <%
-        String cookie = "";
-        Cookie[] cookies = request.getCookies();
-        ServletContext context = config.getServletContext();
-        UsersService usersService = (UsersService) context.getAttribute("usersService");
-            ProductsService productsService = (ProductsService) context.getAttribute("productsService");
-        if (cookies != null) {
-            for (int i = 0; i < cookies.length; i++) {
 
-                if (cookies[i].getName().equals("auth")) {
-                    cookie = cookies[i].getValue();
-                }
-            }
-        }
-        if (cookie.equals("")) {
-    %>
+    <#if name == "">
     <div id="withOutSignIn" class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
         <div class="btn-group mr-2" role="group" aria-label="First group">
             <a href="signIn" class="btn btn-outline-info">Sign In</a>
@@ -54,7 +42,7 @@ NAVBAR
             <a href="signUp" class="btn btn-outline-info">Sign Up</a>
         </div>
     </div>
-    <% } else {%>
+    <#else>
     <div class="btn-toolbar" role="toolbar">
         <div class="btn-group mr-2" role group><a href="/new" class="btn btn-outline-info">Create New Project</a>
         </div>
@@ -62,7 +50,7 @@ NAVBAR
     <div class="dropdown show">
         <a class="btn btn-outline-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%=usersService.Login(cookie).get().getLogin()%>
+            ${name}
         </a>
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -70,31 +58,27 @@ NAVBAR
             <a class="dropdown-item" href="/exit">Log out</a>
         </div>
     </div>
-    <% }%>
+    </#if>
 </nav>
 <br>
 <div class="container">
     <div class="row">
         <div class="card-columns" id="cardColumns">
-            <%
-                for (int i = 0; i < productsService.forTable().size(); i++) {
-            %>
+            <#list products as product>
             <div class="card text-center border-info mb-3" style="max-width: 21rem; align-content: center">
                 <div class="card-header"><h4><a
-                        href="/project?productId=<%=productsService.forTable().get(i).getId()%>"><%=productsService.forTable().get(i).getName()%>
+                        href="/project?productId=${product.getId()}">${product.getName()}
                 </a></h4></div>
                 <div class="card-body text-info">
-                    <h5 class="card-title">Author: <a
-                            href="/profile?userId=<%=productsService.forTable().get(i).getUserId()%>"><%=usersService.find(productsService.forTable().get(i).getUserId()).get().getLogin()%>
+                    <h5 class="card-title"><a
+                            href="/profile?userId=${product.getUserId()}">Author
                     </a>
                     </h5>
-                    <p class="card-text"><%=productsService.forTable().get(i).getSmallInfo()%>
+                    <p class="card-text">${product.getSmallInfo()}
                     </p>
                 </div>
             </div>
-            <%
-                }
-            %>
+            </#list>
         </div>
     </div>
 </div>

@@ -24,7 +24,7 @@ public class UsersRepositoryJdbcTemplateImpl implements UsersRepository {
             "update product_user set (email, login, git, first_name, last_name) = (?,?,?,?,?) where id=?";
     //language=SQL
     private static final String SQL_SELECT_ALL =
-            "select * from pizza_user";
+            "select * from product_user left join products p on product_user.id = p.user_id";
 
     //language=SQL
     private static final String SQL_SELECT_BY_ID =

@@ -1,8 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
+    <title>Project</title>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
@@ -24,31 +22,25 @@ NAVBAR
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="/home">Home <span
-                    class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="/home">Home</a>
             <a class="nav-item nav-link active" href="/main">Look Projects</a>
         </div>
     </div>
 </nav>
-<br>
-<div class="container" align="center">
-    <form method="post">
-        <form-row>
-            <div class="form-group col-md-6">
-                <label for="login">Login</label>
-                <input name="login" type="text" class="form-control" id="login" aria-describedby="emailHelp"
-                       placeholder="Enter login" style="border:1px solid #17a2b8" required>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="password">Password</label>
-                <input name="password" type="password" class="form-control" id="password" placeholder="Password"
-                       style="border:1px solid #17a2b8" required>
-                <br>
-                <a href="home" class="btn btn-outline-info">Back to home</a>
-                <button type="submit" class="btn btn-outline-info">Sign Up</button>
-            </div>
-        </form-row>
-    </form>
+<div class="jumbotron text-center" style="margin-bottom: 0px">
+    <h1 class="display-4" style="text-align: center">${product.get().getName()}
+    </h1>
+    <p class="lead" style="text-align: center">${product.get().getSmallInfo()}
+    </p>
+    <hr class="my-4">
+    <p>${product.get().getFullInfo()}
+    </p>
+    <p class="lead" style="text-align: center">
+        <a href="/main" style="text-align: center" class="btn btn-info btn-lg">Back to projects</a> <a
+            style="text-align: center" class="btn btn-info btn-lg"
+            href="/profile?userId=${product.get().getUserId()}"
+            role="button">See user's profile</a>
+    </p>
 </div>
 </body>
 </html>

@@ -1,10 +1,7 @@
 package ru.itis.project.filters;
 
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import ru.itis.project.repositories.AuthRepository;
-import ru.itis.project.repositories.AuthRepositoryImpl;
-import ru.itis.project.repositories.UsersRepository;
-import ru.itis.project.repositories.UsersRepositoryJdbcTemplateImpl;
+import ru.itis.project.repositories.*;
 import ru.itis.project.services.UsersService;
 import ru.itis.project.services.UsersServiceImpl;
 
@@ -22,14 +19,7 @@ public class AuthFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUsername("postgres");
-        dataSource.setPassword("admin");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
-        UsersRepository usersRepository = new UsersRepositoryJdbcTemplateImpl(dataSource);
-        AuthRepository authRepository = new AuthRepositoryImpl(dataSource);
-        usersService = new UsersServiceImpl(usersRepository, authRepository);
+        usersService = (UsersService) filterConfig.getServletContext().getAttribute("usersService");
     }
 
     @Override

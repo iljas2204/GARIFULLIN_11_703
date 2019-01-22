@@ -45,4 +45,10 @@ public class ProductsServiceImpl implements ProductsService {
     public List<Product> forProfile(Long id) {
         return productsRepository.findByUserId(id);
     }
+
+    @Override
+    public List<Product> findListBySearch(String search) {
+        search = "%" + search + "%";
+        return productsRepository.findBySearch(search);
+    }
 }

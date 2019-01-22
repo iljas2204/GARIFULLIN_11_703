@@ -23,4 +23,6 @@ public interface UsersService {
 
     Optional<User> find (Long id);
 
+    List<User> findAll ();
+
 }

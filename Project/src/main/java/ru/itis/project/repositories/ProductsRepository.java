@@ -7,4 +7,5 @@ import java.util.List;
 public interface ProductsRepository extends CrudRepository<Product> {
     List<Product> findAllProducts();
     List<Product> findByUserId(Long id);
+    List<Product> findBySearch(String search);
 }

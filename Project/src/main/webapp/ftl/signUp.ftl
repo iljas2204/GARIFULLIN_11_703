@@ -1,6 +1,8 @@
 <html>
 <head>
-    <title>New Project</title>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
@@ -14,7 +16,6 @@
           integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 </head>
 <body style="background-color:#EEEFF0">
-
 <!--
 
 NAVBAR
@@ -34,23 +35,17 @@ NAVBAR
     <form method="post">
         <form-row>
             <div class="form-group col-md-6">
-                <label for="name">Name</label>
-                <input name="name" class="form-control" id="name" aria-describedby="emailHelp"
-                       placeholder="Name of project" style="border:1px solid #17a2b8">
+                <label for="login">Login</label>
+                <input name="login" type="text" class="form-control" id="login" aria-describedby="emailHelp"
+                       placeholder="Enter login" style="border:1px solid #17a2b8" required>
             </div>
             <div class="form-group col-md-6">
-                <label for="smallInfo">Small info</label>
-                <input name="smallInfo" class="form-control" id="smallInfo" aria-describedby="emailHelp"
-                       placeholder="Enter small info" style="border:1px solid #17a2b8">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="fullInfo">Full info</label>
-                <input name="fullInfo" class="form-control" id="fullInfo" aria-describedby="emailHelp"
-                       placeholder="Enter full info" style="border:1px solid #17a2b8">
-            </div>
-            <div class="form-group col-md-6">
-                <a href="/main" class="btn btn-outline-info">Back to look projects</a>
-                <button type="submit" class="btn btn-outline-info">Create</button>
+                <label for="password">Password</label>
+                <input name="password" type="password" class="form-control" id="password" placeholder="Password"
+                       style="border:1px solid #17a2b8" required>
+                <br>
+                <a href="home" class="btn btn-outline-info">Back to home</a>
+                <button type="submit" class="btn btn-outline-info">Sign Up</button>
             </div>
         </form-row>
     </form>

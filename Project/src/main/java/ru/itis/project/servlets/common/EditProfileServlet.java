@@ -2,6 +2,7 @@ package ru.itis.project.servlets.common;
 
 import ru.itis.project.forms.SettingsUserForm;
 import ru.itis.project.forms.SignUpForm;
+import ru.itis.project.models.User;
 import ru.itis.project.services.UsersService;
 
 import javax.servlet.ServletConfig;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Optional;
 
 @WebServlet("/edit")
 public class EditProfileServlet extends HttpServlet {
@@ -22,13 +24,24 @@ public class EditProfileServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         ServletContext context = config.getServletContext();
-        usersService = (UsersService)context.getAttribute("usersService");
+        usersService = (UsersService) context.getAttribute("usersService");
     }
 
     @Override
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("jsp/edit.jsp").forward(req, resp);
+        Cookie[] cookies = req.getCookies();
+        String cookie = null;
+        if (cookies != null) {
+            for (int i = 0; i < cookies.length; i++) {
+                if (cookies[i].getName().equals("auth")) {
+                    cookie = cookies[i].getValue();
+                }
+            }
+        }
+        Optional<User> user = usersService.Login(cookie);
+        req.setAttribute("user", user);
+        req.getRequestDispatcher("ftl/edit.ftl").forward(req, resp);
     }
 
     @Override
@@ -37,7 +50,6 @@ public class EditProfileServlet extends HttpServlet {
         String cookie = null;
         if (cookies != null) {
             for (int i = 0; i < cookies.length; i++) {
-
                 if (cookies[i].getName().equals("auth")) {
                     cookie = cookies[i].getValue();
                 }
